@@ -354,11 +354,17 @@ async function createPixPayment(total, cartItems, customer) {
         };
     }
 
+    // Format phone: remove non-digits and add +55 prefix
+    let phone = customer.whatsapp.replace(/\D/g, '');
+    if (!phone.startsWith('55')) {
+        phone = '55' + phone;
+    }
+
     const requestBody = {
         gateway: 'PIX',
         client_name: customer.name,
         client_email: customer.email,
-        client_phone: customer.whatsapp.replace(/\D/g, ''),
+        client_phone: phone,
         terms: true,
         cart: cartData
     };
@@ -374,7 +380,7 @@ async function createPixPayment(total, cartItems, customer) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': CENTRALCART_CONFIG.apiKey
+                'Authorization': `Bearer ${CENTRALCART_CONFIG.apiKey}`
             },
             body: JSON.stringify(requestBody),
             signal: controller.signal

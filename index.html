@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="StreamingBlck - As melhores plataformas de streaming com os melhores preços. Netflix, Disney+, HBO, Viki Pass e muito mais!">
+    <meta name="keywords" content="streaming, netflix, disney plus, hbo, viki pass, assinatura, revenda">
+    <title>Orion | Sua Central de Streaming Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <span class="logo-icon">▶</span>
+                    <span class="logo-text">Ori<span class="logo-highlight">on</span></span>
+                </a>
+                <nav class="nav">
+                    <a href="#planos" class="nav-link">Planos</a>
+                    <a href="#beneficios" class="nav-link">Benefícios</a>
+                    <a href="#faq" class="nav-link">FAQ</a>
+                    <a href="#contato" class="nav-link">Contato</a>
+                </nav>
+                <button class="cart-btn" id="cartBtn">
+                    <span class="cart-icon">🛒</span>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-nav">
+            <a href="#planos" class="mobile-nav-link">Planos</a>
+            <a href="#beneficios" class="mobile-nav-link">Benefícios</a>
+            <a href="#faq" class="mobile-nav-link">FAQ</a>
+            <a href="#contato" class="mobile-nav-link">Contato</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="hero-subtitle">A sua central de</span>
+                    Streaming Premium
+                    <span class="hero-highlight">com o melhor preço</span>
+                </h1>
+                <p class="hero-description">
+                    Acesse as melhores plataformas de streaming do mundo por uma fração do preço.
+                    <strong>100% seguro</strong>, entrega imediata e suporte dedicado.
+                </p>
+                <div class="hero-cta">
+                    <a href="#planos" class="btn btn-primary btn-lg">
+                        <span>Ver Planos</span>
+                        <span class="btn-arrow">→</span>
+                    </a>
+                    <div class="hero-trust">
+                        <div class="trust-badges">
+                            <span class="badge">✓ Entrega Instantânea</span>
+                            <span class="badge">✓ Suporte 24/7</span>
+                            <span class="badge">✓ 7 Dias de Garantia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-cards">
+                    <div class="floating-card fc-1"><span class="fc-icon netflix-bg">N</span></div>
+                    <div class="floating-card fc-2"><span class="fc-icon disney-bg">D+</span></div>
+                    <div class="floating-card fc-3"><span class="fc-icon hbo-bg">MAX</span></div>
+                    <div class="floating-card fc-4"><span class="fc-icon viki-bg">V</span></div>
+                    <div class="floating-card fc-5"><span class="fc-icon youku-bg">Y</span></div>
+                    <div class="floating-card fc-6"><span class="fc-icon iqiyi-bg">iQ</span></div>
+                    <div class="floating-card fc-7"><span class="fc-icon kocowa-bg">K+</span></div>
+                    <div class="floating-card fc-8"><span class="fc-icon reelshort-bg">R</span></div>
+                    <div class="floating-card fc-9"><span class="fc-icon dramawave-bg">DW</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">10K+</span>
+                    <span class="stat-label">Clientes Satisfeitos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">9</span>
+                    <span class="stat-label">Plataformas</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Suporte Disponível</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">99.9%</span>
+                    <span class="stat-label">Uptime Garantido</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section class="plans" id="planos">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Nossos Planos</span>
+                <h2 class="section-title">Escolha sua Plataforma Favorita</h2>
+                <p class="section-description">
+                    Selecione o período desejado e adicione ao carrinho.
+                    <strong>Quanto mais planos, maior o desconto!</strong>
+                </p>
+            </div>
+
+            <!-- Period Selector -->
+            <div class="period-selector">
+                <button class="period-btn active" data-period="monthly">
+                    <span class="period-name">Mensal</span>
+                </button>
+                <button class="period-btn" data-period="quarterly">
+                    <span class="period-name">Trimestral</span>
+                    <span class="period-discount">-15%</span>
+                </button>
+                <button class="period-btn" data-period="semiannual">
+                    <span class="period-name">Semestral</span>
+                    <span class="period-discount">-30%</span>
+                </button>
+                <button class="period-btn" data-period="annual">
+                    <span class="period-name">Anual</span>
+                    <span class="period-discount">-50%</span>
+                </button>
+            </div>
+
+            <!-- Discount Info -->
+            <div class="discount-info">
+                <div class="discount-badge">
+                    <span class="discount-icon">🎁</span>
+                    <span class="discount-text">Adicione mais planos e ganhe <strong>10% de desconto adicional</strong>
+                        a cada item no carrinho!</span>
+                </div>
+            </div>
+
+            <!-- Plans Grid -->
+            <div class="plans-grid">
+                <!-- Netflix -->
+                <div class="plan-card" data-platform="netflix" data-price="12.90">
+                    <div class="plan-badge popular">Popular</div>
+                    <div class="plan-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+                            alt="Netflix" class="platform-logo">
+                    </div>
+                    <h3 class="plan-name">Netflix</h3>
+                    <p class="plan-description">Filmes, séries e documentários em até 4K.</p>
+                    <div class="plan-price">
+                        <span class="price-currency">R$</span>
+                        <span class="price-value" data-base="12.90">12,90</span>
+                        <span class="price-period">/mês</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li>✓ Acesso completo ao catálogo</li>
+                        <li>✓ Qualidade até 4K Ultra HD</li>
+                        <li>✓ 4 telas simultâneas</li>
+                        <li>✓ Download para assistir offline</li>
+                    </ul>
+                    <button class="btn btn-add-cart" data-platform="netflix">
+                        <span>Adicionar ao Carrinho</span>
+                        <span class="btn-icon">+</span>
+                    </button>
+                </div>
+
+                <!-- Disney+ -->
+                <div class="plan-card" data-platform="disney" data-price="12.90">
+                    <div class="plan-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney+"
+                            class="platform-logo">
+                    </div>
+                    <h3 class="plan-name">Disney+</h3>
+                    <p class="plan-description">Disney, Pixar, Marvel, Star Wars e National Geographic.</p>
+                    <div class="plan-price">
+                        <span class="price-currency">R$</span>
+                        <span class="price-value" data-base="12.90">12,90</span>
+                        <span class="price-period">/mês</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li>✓ Todo universo Disney</li>
+                        <li>✓ Conteúdo exclusivo Marvel</li>
+                        <li>✓ 4 telas simultâneas</li>
+                        <li>✓ Download ilimitado</li>
+                    </ul>
+                    <button class="btn btn-add-cart" data-platform="disney">
+                        <span>Adicionar ao Carrinho</span>
+                        <span class="btn-icon">+</span>
+                    </button>
+                </div>
+
+                <!-- HBO -->
+                <div class="plan-card" data-platform="hbo" data-price="9.90">
+                    <div class="plan-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/HBO_Max_Logo.svg" alt="HBO Max"
+                            class="platform-logo">
+                    </div>
+                    <h3 class="plan-name">HBO Max</h3>
+                    <p class="plan-description">Séries premiadas, filmes e conteúdo Warner.</p>
+                    <div class="plan-price">
+                        <span class="price-currency">R$</span>
+                        <span class="price-value" data-base="9.90">9,90</span>
+                        <span class="price-period">/mês</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li>✓ Séries HBO originais</li>
+                        <li>✓ Filmes Warner Bros</li>
+                        <li>✓ 3 telas simultâneas</li>
+                        <li>✓ Qualidade 4K HDR</li>
+                    </ul>
+                    <button class="btn btn-add-cart" data-platform="hbo">
+                        <span>Adicionar ao Carrinho</span>
+                        <span class="btn-icon">+</span>
+                    </button>
+                </div>
+
+                <!-- Viki Pass -->
+                <div class="plan-card" data-platform="viki" data-price="9.90">
+                    <div class="plan-logo">
+                        <span class="platform-icon viki-icon">V</span>
+                    </div>
+                    <h3 class="plan-name">Viki Pass</h3>
+                    <p class="plan-description">Doramas coreanos, chineses e asiáticos.</p>
+                    <div class="plan-price">
+                        <span class="price-currency">R$</span>
+                        <span class="price-value" data-base="9.90">9,90</span>
+                        <span class="price-period">/mês</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li>✓ Doramas exclusivos</li>
+                        <li>✓ Legendas em português</li>
+                        <li>✓ Sem anúncios</li>
+                        <li>✓ Acesso antecipado</li>
+                    </ul>
+                    <button class="btn btn-add-cart" data-platform="viki">
+                        <span>Adicionar ao Carrinho</span>
+                        <span class="btn-icon">+</span>
+                    </button>
+                </div>
+
+                <!-- Youku -->
+                <div class="plan-card" data-platform="youku" data-price="7.90">
+                    <div class="plan-logo">
+                        <span class="platform-icon youku-icon">Y</span>
+                    </div>
+                    <h3 class="plan-name">Youku</h3>
+                    <p class="plan-description">Plataforma chinesa com dramas e variedades.</p>
+                    <div class="plan-price">
+                        <span class="price-currency">R$</span>
+                        <span class="price-value" data-base="7.90">7,90</span>
+                        <span class="price-period">/mês</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li>✓ Dramas chineses</li>
+                        <li>✓ Programas de variedades</li>
+                        <li>✓ Conteúdo exclusivo</li>
+                        <li>✓ Alta qualidade</li>
+                    </ul>
+                    <button class="btn btn-add-cart" data-platform="youku">
+                        <span>Adicionar ao Carrinho</span>
+                        <span class="btn-icon">+</span>
+                    </button>
+                </div>
+
+                <!-- IQIYI -->
+                <div class="plan-card" data-platform="iqiyi" data-price="9.90">
+                    <div class="plan-logo">
+                        <span class="platform-icon iqiyi-icon">iQ</span>
+                    </div>
+                    <h3 class="plan-name">IQIYI</h3>
+                    <p class="plan-description">O maior catálogo de conteúdo asiático.</p>
+                    <div class="plan-price">
+                        <span class="price-currency">R$</span>
+                        <span class="price-value" data-base="9.90">9,90</span>
+                        <span class="price-period">/mês</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li>✓ Maior catálogo asiático</li>
+                        <li>✓ Legendas multilíngues</li>
+                        <li>✓ Conteúdo original</li>
+                        <li>✓ Qualidade premium</li>
+                    </ul>
+                    <button class="btn btn-add-cart" data-platform="iqiyi">
+                        <span>Adicionar ao Carrinho</span>
+                        <span class="btn-icon">+</span>
+                    </button>
+                </div>
+
+                <!-- Kocowa+ -->
+                <div class="plan-card" data-platform="kocowa" data-price="7.90">
+                    <div class="plan-logo">
+                        <span class="platform-icon kocowa-icon">K+</span>
+                    </div>
+                    <h3 class="plan-name">Kocowa+</h3>
+                    <p class="plan-description">K-dramas e K-pop em um só lugar.</p>
+                    <div class="plan-price">
+                        <span class="price-currency">R$</span>
+                        <span class="price-value" data-base="7.90">7,90</span>
+                        <span class="price-period">/mês</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li>✓ K-dramas exclusivos</li>
+                        <li>✓ Shows de K-pop</li>
+                        <li>✓ Legendas em português</li>
+                        <li>✓ Lançamentos diários</li>
+                    </ul>
+                    <button class="btn btn-add-cart" data-platform="kocowa">
+                        <span>Adicionar ao Carrinho</span>
+                        <span class="btn-icon">+</span>
+                    </button>
+                </div>
+
+                <!-- ReelShorts -->
+                <div class="plan-card" data-platform="reelshorts" data-price="12.90">
+                    <div class="plan-badge new">Novo</div>
+                    <div class="plan-logo">
+                        <span class="platform-icon reelshorts-icon">R</span>
+                    </div>
+                    <h3 class="plan-name">ReelShorts</h3>
+                    <p class="plan-description">Séries curtas e conteúdo rápido premium.</p>
+                    <div class="plan-price">
+                        <span class="price-currency">R$</span>
+                        <span class="price-value" data-base="12.90">12,90</span>
+                        <span class="price-period">/mês</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li>✓ Episódios curtos</li>
+                        <li>✓ Conteúdo viral</li>
+                        <li>✓ Atualizações diárias</li>
+                        <li>✓ Sem anúncios</li>
+                    </ul>
+                    <button class="btn btn-add-cart" data-platform="reelshorts">
+                        <span>Adicionar ao Carrinho</span>
+                        <span class="btn-icon">+</span>
+                    </button>
+                </div>
+
+                <!-- DramaWave -->
+                <div class="plan-card" data-platform="dramawave" data-price="12.90">
+                    <div class="plan-badge new">Novo</div>
+                    <div class="plan-logo">
+                        <span class="platform-icon dramawave-icon">DW</span>
+                    </div>
+                    <h3 class="plan-name">DramaWave</h3>
+                    <p class="plan-description">O melhor dos dramas asiáticos reunidos.</p>
+                    <div class="plan-price">
+                        <span class="price-currency">R$</span>
+                        <span class="price-value" data-base="12.90">12,90</span>
+                        <span class="price-period">/mês</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li>✓ Curadoria especial</li>
+                        <li>✓ Dramas exclusivos</li>
+                        <li>✓ Comunidade ativa</li>
+                        <li>✓ Recomendações personalizadas</li>
+                    </ul>
+                    <button class="btn btn-add-cart" data-platform="dramawave">
+                        <span>Adicionar ao Carrinho</span>
+                        <span class="btn-icon">+</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="beneficios">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Por que nos escolher?</span>
+                <h2 class="section-title">Benefícios Exclusivos</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3 class="benefit-title">Entrega Instantânea</h3>
+                    <p class="benefit-description">Receba seu login e senha no e-mail e WhatsApp em poucos minutos após
+                        a confirmação do pagamento.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📹</div>
+                    <h3 class="benefit-title">Vídeo Tutorial</h3>
+                    <p class="benefit-description">Enviamos um vídeo tutorial completo ensinando como acessar sua conta
+                        de forma simples e rápida.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">👥</div>
+                    <h3 class="benefit-title">Comunidade VIP</h3>
+                    <p class="benefit-description">Acesso ao grupo exclusivo de clientes no WhatsApp e Telegram para
+                        novidades e suporte.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💬</div>
+                    <h3 class="benefit-title">Suporte Dedicado</h3>
+                    <p class="benefit-description">Tire suas dúvidas diretamente via WhatsApp. Resposta em até 15
+                        minutos durante horário comercial.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔒</div>
+                    <h3 class="benefit-title">100% Seguro</h3>
+                    <p class="benefit-description">Pagamento via PIX com confirmação instantânea. Seus dados estão
+                        protegidos.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">✅</div>
+                    <h3 class="benefit-title">Garantia de 7 Dias</h3>
+                    <p class="benefit-description">Direito de arrependimento garantido por lei. Seu dinheiro de volta
+                        sem burocracia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Simples e Rápido</span>
+                <h2 class="section-title">Como Funciona?</h2>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Escolha seus Planos</h3>
+                    <p class="step-description">Selecione as plataformas e o período desejado. Adicione ao carrinho e
+                        ganhe descontos progressivos!</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Faça o Cadastro</h3>
+                    <p class="step-description">Informe seu nome, e-mail e WhatsApp para receber os dados de acesso.</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Pague via PIX</h3>
+                    <p class="step-description">Escaneie o QR Code ou copie a chave PIX. Pagamento seguro e instantâneo.
+                    </p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Receba o Acesso</h3>
+                    <p class="step-description">Login, senha e tutorial enviados para seu e-mail e WhatsApp em minutos!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Dúvidas Frequentes</span>
+                <h2 class="section-title">Perguntas e Respostas</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Como recebo meu acesso?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Após a confirmação do pagamento, você receberá o login e senha no seu e-mail e WhatsApp
+                            cadastrados. Também enviamos um vídeo tutorial explicando como acessar a plataforma.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Em quanto tempo recebo o acesso?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>O prazo de entrega é de alguns minutos após a confirmação do PIX. Em horários de pico, pode
+                            haver uma demora de até 15 minutos.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Posso usar em qualquer dispositivo?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim! Você pode acessar em Smart TVs, computadores, celulares, tablets e qualquer dispositivo
+                            compatível com a plataforma escolhida.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>E se eu tiver problemas com o acesso?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Basta entrar em contato conosco via WhatsApp (mesmo número que enviou seus dados de acesso).
+                            Respondemos em até 15 minutos durante o horário comercial.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Tenho direito a reembolso?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim! De acordo com o <strong>Art. 49 do Código de Defesa do Consumidor (Lei
+                                8.078/90)</strong>, você tem direito de arrependimento em até 7 dias corridos após a
+                            compra, com reembolso integral do valor pago.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Como funciona o desconto progressivo?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>A cada plataforma adicional no carrinho, você ganha <strong>10% de desconto no valor
+                                total</strong>. Exemplo: 2 planos = 10% de desconto, 3 planos = 20% de desconto, e assim
+                            por diante!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contato">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <span class="section-tag">Fale Conosco</span>
+                    <h2 class="section-title">Precisa de Ajuda?</h2>
+                    <p class="contact-description">
+                        Nossa equipe está pronta para atender você. Entre em contato via WhatsApp para tirar suas
+                        dúvidas ou resolver qualquer problema.
+                    </p>
+                    <div class="contact-methods">
+                        <a href="https://wa.me/5500000000000" class="contact-method" target="_blank">
+                            <span class="contact-icon">📱</span>
+                            <div class="contact-details">
+                                <span class="contact-label">WhatsApp</span>
+                                <span class="contact-value">(00) 00000-0000</span>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="contact-note">
+                        <strong>Horário de atendimento:</strong> Segunda a Domingo, 8h às 22h.<br>
+                        Tempo médio de resposta: até 15 minutos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-icon">▶</span>
+                        <span class="logo-text">Ori<span class="logo-highlight">on</span></span>
+                    </a>
+                    <p class="footer-description">
+                        Sua central de streaming premium com os melhores preços do mercado.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4 class="footer-title">Links Rápidos</h4>
+                    <a href="#planos">Planos</a>
+                    <a href="#beneficios">Benefícios</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#contato">Contato</a>
+                </div>
+                <div class="footer-legal">
+                    <h4 class="footer-title">Legal</h4>
+                    <a href="#" id="termsLink">Termos de Uso</a>
+                    <a href="#" id="privacyLink">Política de Privacidade</a>
+                    <a href="#" id="refundLink">Política de Reembolso</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">© 2024 Orion. Todos os direitos reservados.</p>
+                <p class="legal-notice">
+                    De acordo com o Art. 49 do Código de Defesa do Consumidor (Lei 8.078/90),
+                    o consumidor pode desistir da compra em até 7 dias e ter direito ao reembolso integral.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3 class="cart-title">Seu Carrinho</h3>
+            <button class="cart-close" id="cartClose">✕</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Items will be added dynamically -->
+        </div>
+        <div class="cart-empty" id="cartEmpty">
+            <span class="cart-empty-icon">🛒</span>
+            <p>Seu carrinho está vazio</p>
+            <a href="#planos" class="btn btn-primary">Ver Planos</a>
+        </div>
+        <div class="cart-summary" id="cartSummary">
+            <div class="cart-subtotal">
+                <span>Subtotal:</span>
+                <span id="cartSubtotal">R$ 0,00</span>
+            </div>
+            <div class="cart-discount">
+                <span>Desconto (<span id="discountPercent">0</span>%):</span>
+                <span id="cartDiscount">- R$ 0,00</span>
+            </div>
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">R$ 0,00</span>
+            </div>
+            <button class="btn btn-primary btn-block" id="checkoutBtn">
+                Finalizar Compra
+            </button>
+        </div>
+    </aside>
+
+    <!-- Registration Modal -->
+    <div class="modal-overlay" id="registerModal">
+        <div class="modal">
+            <button class="modal-close" id="registerClose">✕</button>
+            <div class="modal-header">
+                <h3 class="modal-title">Cadastro</h3>
+                <p class="modal-subtitle">Preencha seus dados para continuar</p>
+            </div>
+            <form class="register-form" id="registerForm">
+                <div class="form-group">
+                    <label for="userName">Nome Completo</label>
+                    <input type="text" id="userName" name="name" required placeholder="Digite seu nome completo">
+                </div>
+                <div class="form-group">
+                    <label for="userEmail">E-mail</label>
+                    <input type="email" id="userEmail" name="email" required placeholder="seu@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="userWhatsapp">WhatsApp</label>
+                    <input type="tel" id="userWhatsapp" name="whatsapp" required placeholder="(00) 00000-0000">
+                </div>
+                <div class="form-info">
+                    <p>📧 Você receberá seu login e senha por e-mail e WhatsApp</p>
+                    <p>📹 Incluímos um vídeo tutorial de como acessar</p>
+                    <p>👥 Link para grupos VIP no WhatsApp e Telegram</p>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    Continuar para Pagamento
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal-overlay" id="paymentModal">
+        <div class="modal modal-lg">
+            <button class="modal-close" id="paymentClose">✕</button>
+            <div class="modal-header">
+                <h3 class="modal-title">Pagamento via PIX</h3>
+                <p class="modal-subtitle">Escaneie o QR Code ou copie o código</p>
+            </div>
+            <div class="payment-content">
+                <div class="payment-qr">
+                    <div class="qr-code" id="qrCodeContainer">
+                        <!-- QR Code will be generated dynamically -->
+                        <div class="loading-spinner"></div>
+                        <p>Gerando QR Code...</p>
+                    </div>
+                    <div id="paymentError" class="payment-error" style="display: none;"></div>
+                    <div class="payment-timer">
+                        <span class="timer-icon">⏱️</span>
+                        <span>Expira em: <strong id="paymentTimer">15:00</strong></span>
+                    </div>
+                </div>
+                <div class="payment-details">
+                    <div class="payment-total">
+                        <span>Total a pagar:</span>
+                        <span class="payment-amount" id="paymentAmount">R$ 0,00</span>
+                    </div>
+                    <div class="pix-key">
+                        <label>📋 PIX Copia e Cola:</label>
+                        <div class="pix-key-container">
+                            <textarea id="pixKey" readonly rows="3"
+                                class="pix-textarea">Gerando código PIX...</textarea>
+                            <button class="btn-copy" id="copyPixKey">
+                                <span>📋 Copiar Código</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="payment-info">
+                        <h4>Após o pagamento:</h4>
+                        <ul>
+                            <li>✓ Login e senha serão enviados por e-mail e WhatsApp</li>
+                            <li>✓ Vídeo tutorial de acesso incluso</li>
+                            <li>✓ Link para grupos VIP (WhatsApp e Telegram)</li>
+                            <li>✓ Suporte via WhatsApp (resposta em até 15 min)</li>
+                        </ul>
+                    </div>
+                    <div class="refund-notice">
+                        <span class="refund-icon">⚖️</span>
+                        <p>
+                            <strong>Direito de Arrependimento:</strong> Conforme o Art. 49 do Código de Defesa do
+                            Consumidor
+                            (Lei 8.078/90), você tem até 7 dias corridos após a compra para solicitar o reembolso
+                            integral,
+                            sem necessidade de justificativa.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="payment-actions">
+                <button class="btn btn-secondary" id="backToCart">Voltar ao Carrinho</button>
+                <button class="btn btn-success" id="confirmPayment">Já Realizei o Pagamento</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal">
+            <div class="success-content">
+                <div class="success-icon">🎉</div>
+                <h3 class="success-title">Pagamento Recebido!</h3>
+                <p class="success-message">
+                    Obrigado por sua compra! Em breve você receberá seu acesso no e-mail e WhatsApp cadastrados.
+                </p>
+                <div class="success-info">
+                    <p><strong>📧 E-mail:</strong> <span id="successEmail">-</span></p>
+                    <p><strong>📱 WhatsApp:</strong> <span id="successWhatsapp">-</span></p>
+                </div>
+                <div class="success-notice">
+                    <p>Tempo estimado de entrega: <strong>até 15 minutos</strong></p>
+                    <p>Você também receberá o link para os grupos VIP!</p>
+                </div>
+                <button class="btn btn-primary btn-block" id="successClose">Entendi</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms Modal -->
+    <div class="modal-overlay" id="termsModal">
+        <div class="modal modal-lg">
+            <button class="modal-close" id="termsClose">✕</button>
+            <div class="modal-header">
+                <h3 class="modal-title">Termos de Uso</h3>
+            </div>
+            <div class="terms-content">
+                <h4>1. Aceitação dos Termos</h4>
+                <p>Ao utilizar os serviços da StreamingBlck, você concorda com estes Termos de Uso. Se não concordar,
+                    não utilize nossos serviços.</p>
+
+                <h4>2. Serviços Oferecidos</h4>
+                <p>A Stream Plus oferece acesso a plataformas de streaming através de contas compartilhadas. Os acessos
+                    são fornecidos mediante pagamento e têm validade conforme o plano escolhido.</p>
+
+                <h4>3. Responsabilidades do Usuário</h4>
+                <p>O usuário se compromete a não compartilhar os dados de acesso fornecidos, não alterar senhas ou
+                    configurações das contas, e utilizar o serviço apenas para uso pessoal.</p>
+
+                <h4>4. Política de Reembolso</h4>
+                <p>Conforme o Art. 49 do Código de Defesa do Consumidor (Lei 8.078/90), o consumidor tem direito de
+                    arrependimento em até 7 dias corridos após a compra.</p>
+
+                <h4>5. Limitação de Responsabilidade</h4>
+                <p>A Stream Plus não se responsabiliza por indisponibilidades temporárias das plataformas de streaming,
+                    que são de responsabilidade dos respectivos provedores.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Modal -->
+    <div class="modal-overlay" id="privacyModal">
+        <div class="modal modal-lg">
+            <button class="modal-close" id="privacyClose">✕</button>
+            <div class="modal-header">
+                <h3 class="modal-title">Política de Privacidade</h3>
+            </div>
+            <div class="terms-content">
+                <h4>1. Coleta de Dados</h4>
+                <p>Coletamos apenas os dados necessários para a prestação do serviço: nome, e-mail e número de WhatsApp.
+                </p>
+
+                <h4>2. Uso dos Dados</h4>
+                <p>Seus dados são utilizados exclusivamente para: envio dos dados de acesso, comunicação sobre o serviço
+                    contratado, e suporte ao cliente.</p>
+
+                <h4>3. Proteção dos Dados</h4>
+                <p>Implementamos medidas de segurança para proteger suas informações pessoais contra acesso não
+                    autorizado.</p>
+
+                <h4>4. Compartilhamento</h4>
+                <p>Não vendemos, alugamos ou compartilhamos suas informações pessoais com terceiros, exceto quando
+                    exigido por lei.</p>
+
+                <h4>5. Seus Direitos</h4>
+                <p>Você pode solicitar acesso, correção ou exclusão de seus dados pessoais a qualquer momento através do
+                    nosso canal de atendimento.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Refund Modal -->
+    <div class="modal-overlay" id="refundModal">
+        <div class="modal modal-lg">
+            <button class="modal-close" id="refundClose">✕</button>
+            <div class="modal-header">
+                <h3 class="modal-title">Política de Reembolso</h3>
+            </div>
+            <div class="terms-content">
+                <h4>Direito de Arrependimento</h4>
+                <p>De acordo com o <strong>Art. 49 do Código de Defesa do Consumidor (Lei 8.078/90)</strong>:</p>
+                <blockquote>
+                    "O consumidor pode desistir do contrato, no prazo de 7 dias a contar de sua assinatura ou do ato de
+                    recebimento do produto ou serviço, sempre que a contratação de fornecimento de produtos e serviços
+                    ocorrer fora do estabelecimento comercial, especialmente por telefone ou a domicílio."
+                </blockquote>
+
+                <h4>Como Solicitar o Reembolso</h4>
+                <p>Para solicitar o reembolso, entre em contato via WhatsApp informando:</p>
+                <ul>
+                    <li>Nome completo</li>
+                    <li>E-mail cadastrado</li>
+                    <li>Data da compra</li>
+                    <li>Motivo da desistência (opcional)</li>
+                </ul>
+
+                <h4>Prazo para Reembolso</h4>
+                <p>Após a solicitação, o reembolso será processado em até 7 dias úteis, pelo mesmo meio de pagamento
+                    utilizado na compra.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js?v=3"></script>
+</body>
+
+</html>

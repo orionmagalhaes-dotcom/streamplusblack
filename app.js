@@ -357,7 +357,9 @@ async function createPixPayment(total, cartItems, customer) {
     // Format phone: remove non-digits and add +55 prefix
     let phone = customer.whatsapp.replace(/\D/g, '');
     if (!phone.startsWith('55')) {
-        phone = '55' + phone;
+        phone = '+55' + phone;
+    } else {
+        phone = '+' + phone;
     }
 
     const requestBody = {

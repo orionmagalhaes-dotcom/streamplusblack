@@ -144,6 +144,8 @@ const refundClose = document.getElementById('refundClose');
 
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
+const contactForm = document.getElementById('contactForm');
+const contactResponse = document.getElementById('contactResponse');
 
 // ========================================
 // Utility Functions
@@ -184,6 +186,16 @@ periodButtons.forEach(btn => {
         setPeriod(btn.dataset.period);
     });
 });
+
+if (contactForm) {
+    contactForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (contactResponse) {
+            contactResponse.classList.add('active');
+        }
+        contactForm.reset();
+    });
+}
 
 function updatePlanPrices() {
     const period = periodDiscounts[currentPeriod];

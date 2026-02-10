@@ -1174,6 +1174,26 @@ body {
     margin-bottom: var(--space-xl);
 }
 
+.contact-form {
+    max-width: 420px;
+    margin: 0 auto var(--space-lg);
+    text-align: left;
+}
+
+.contact-response {
+    display: none;
+    background: var(--bg-glass);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    padding: var(--space-md);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+}
+
+.contact-response.active {
+    display: block;
+}
+
 .contact-methods {
     display: flex;
     justify-content: center;

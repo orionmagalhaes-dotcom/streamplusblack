@@ -1,0 +1,10 @@
+node_modules/
+.wrangler/
+.git/
+.gitignore
+package-lock.json
+wrangler.log
+wrangler-debug.log
+*.log
+README.md
+LICENSE

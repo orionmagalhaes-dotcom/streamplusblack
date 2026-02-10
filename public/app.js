@@ -1,5 +1,5 @@
 /* ========================================
-   Orion - JavaScript Application
+   Stream Plus - JavaScript Application
    ======================================== */
 
 // Platform Data - packageIds por período (Centralcart)

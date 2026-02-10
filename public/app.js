@@ -75,6 +75,14 @@ const platforms = {
         iconClass: 'dramawave-icon',
         packageIds: { monthly: 428897, quarterly: 428937 },
         priceByPeriod: { monthly: 12.90, quarterly: 12.90 * 2, semiannual: 12.90 * 4, annual: 12.90 * 7 }
+    },
+    teste: {
+        name: 'Produto Teste',
+        price: 1.00,
+        icon: 'T',
+        iconClass: 'test-icon',
+        packageIds: { monthly: 429588 },
+        priceByPeriod: { monthly: 1.00, quarterly: 1.00 * 2, semiannual: 1.00 * 4, annual: 1.00 * 7 }
     }
 };
 

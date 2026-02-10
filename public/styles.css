@@ -936,6 +936,11 @@ body {
     font-size: 1.2rem;
 }
 
+.test-icon {
+    background: linear-gradient(135deg, #00cec9, #6c5ce7);
+    font-size: 1.2rem;
+}
+
 /* Platform Logo Images */
 .platform-logo {
     width: 42px;

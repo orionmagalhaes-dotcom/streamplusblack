@@ -92,6 +92,10 @@ const CENTRALCART_CONFIG = {
     apiKey: 'd11b3ea6-1430-4736-9991-b20036139a49'
 };
 
+const SUPABASE_URL = 'https://xmmxeecatewaqtqpfqfa.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhtbXhlZWNhdGV3YXF0cXBmcWZhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA2OTQyNzksImV4cCI6MjA4NjI3MDI3OX0.lcHf21-SeWwa07rWkwgl9EJknngwDDGf6A-0-HZgxUk';
+const SUPABASE_TABLE = 'contacts';
+
 // State
 let cart = [];
 let currentPeriod = 'monthly';
@@ -162,6 +166,26 @@ function formatPrice(value) {
     return value.toFixed(2).replace('.', ',');
 }
 
+async function saveContactLead(payload) {
+    try {
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/${SUPABASE_TABLE}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                apikey: SUPABASE_ANON_KEY,
+                Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+                Prefer: 'return=minimal'
+            },
+            body: JSON.stringify([payload])
+        });
+        if (!response.ok) {
+            return;
+        }
+    } catch (error) {
+        return;
+    }
+}
+
 // ========================================
 // Period Selection
 // ========================================
@@ -188,8 +212,22 @@ periodButtons.forEach(btn => {
 });
 
 if (contactForm) {
-    contactForm.addEventListener('submit', (event) => {
+    contactForm.addEventListener('submit', async (event) => {
         event.preventDefault();
+        const name = document.getElementById('contactName').value.trim();
+        const phone = document.getElementById('contactPhone').value.trim();
+
+        if (!name || !phone) {
+            showNotification('Por favor, preencha todos os campos.', 'error');
+            return;
+        }
+
+        await saveContactLead({
+            name,
+            phone,
+            source: 'ajuda',
+            created_at: new Date().toISOString()
+        });
         if (contactResponse) {
             contactResponse.classList.add('active');
         }
@@ -397,7 +435,7 @@ checkoutBtn.addEventListener('click', () => {
     openModal(registerModal);
 });
 
-registerForm.addEventListener('submit', (e) => {
+registerForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const name = document.getElementById('userName').value.trim();
@@ -413,6 +451,14 @@ registerForm.addEventListener('submit', (e) => {
         showNotification('Por favor, insira um e-mail válido.', 'error');
         return;
     }
+
+    await saveContactLead({
+        name,
+        email,
+        phone: whatsapp,
+        source: 'compra',
+        created_at: new Date().toISOString()
+    });
 
     userData = { name, email, whatsapp };
     saveUserData();
@@ -892,21 +938,36 @@ function loadUserData() {
 // WhatsApp Phone Mask
 // ========================================
 
-document.getElementById('userWhatsapp').addEventListener('input', function (e) {
-    let value = e.target.value.replace(/\D/g, '');
+function formatPhoneNumber(value) {
+    let digits = value.replace(/\D/g, '');
 
-    if (value.length > 11) value = value.slice(0, 11);
+    if (digits.length > 11) digits = digits.slice(0, 11);
 
-    if (value.length > 7) {
-        value = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7)}`;
-    } else if (value.length > 2) {
-        value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
-    } else if (value.length > 0) {
-        value = `(${value}`;
+    if (digits.length > 7) {
+        return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
     }
+    if (digits.length > 2) {
+        return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+    }
+    if (digits.length > 0) {
+        return `(${digits}`;
+    }
+    return '';
+}
 
-    e.target.value = value;
-});
+const userWhatsappInput = document.getElementById('userWhatsapp');
+if (userWhatsappInput) {
+    userWhatsappInput.addEventListener('input', function (e) {
+        e.target.value = formatPhoneNumber(e.target.value);
+    });
+}
+
+const contactPhoneInput = document.getElementById('contactPhone');
+if (contactPhoneInput) {
+    contactPhoneInput.addEventListener('input', function (e) {
+        e.target.value = formatPhoneNumber(e.target.value);
+    });
+}
 
 // ========================================
 // Smooth Scroll

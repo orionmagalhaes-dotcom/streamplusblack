@@ -2,25 +2,88 @@
    StreamingBlck - JavaScript Application
    ======================================== */
 
-// Platform Data - packageId é o ID do produto no Centralcart
+// Platform Data - packageIds por período (Centralcart)
 const platforms = {
-    netflix: { name: 'Netflix', price: 12.90, icon: 'N', iconClass: 'netflix-icon', packageId: 428773 },
-    disney: { name: 'Disney+', price: 12.90, icon: 'D+', iconClass: 'disney-icon', packageId: null },
-    hbo: { name: 'HBO Max', price: 9.90, icon: 'HBO', iconClass: 'hbo-icon', packageId: null },
-    viki: { name: 'Viki Pass', price: 9.90, icon: 'V', iconClass: 'viki-icon', packageId: null },
-    youku: { name: 'Youku', price: 7.90, icon: 'Y', iconClass: 'youku-icon', packageId: null },
-    iqiyi: { name: 'IQIYI', price: 9.90, icon: 'iQ', iconClass: 'iqiyi-icon', packageId: null },
-    kocowa: { name: 'Kocowa+', price: 7.90, icon: 'K+', iconClass: 'kocowa-icon', packageId: null },
-    reelshorts: { name: 'ReelShorts', price: 12.90, icon: 'RS', iconClass: 'reelshorts-icon', packageId: null },
-    dramawave: { name: 'DramaWave', price: 12.90, icon: 'DW', iconClass: 'dramawave-icon', packageId: null }
+    netflix: {
+        name: 'Netflix',
+        price: 12.90,
+        icon: 'N',
+        iconClass: 'netflix-icon',
+        packageIds: { monthly: 428773, quarterly: 428931 },
+        priceByPeriod: { monthly: 12.90, quarterly: 12.90 * 2, semiannual: 12.90 * 4, annual: 12.90 * 7 }
+    },
+    disney: {
+        name: 'Disney+',
+        price: 12.90,
+        icon: 'D+',
+        iconClass: 'disney-icon',
+        packageIds: { monthly: 428864, quarterly: 428932 },
+        priceByPeriod: { monthly: 12.90, quarterly: 12.90 * 2, semiannual: 12.90 * 4, annual: 12.90 * 7 }
+    },
+    hbo: {
+        name: 'HBO Max',
+        price: 9.90,
+        icon: 'HBO',
+        iconClass: 'hbo-icon',
+        packageIds: { monthly: 428865, quarterly: 428941 },
+        priceByPeriod: { monthly: 9.90, quarterly: 9.90 * 2, semiannual: 9.90 * 4, annual: 9.90 * 7 }
+    },
+    viki: {
+        name: 'Viki Pass',
+        price: 9.90,
+        icon: 'V',
+        iconClass: 'viki-icon',
+        packageIds: { monthly: 428873, quarterly: 428945 },
+        priceByPeriod: { monthly: 9.90, quarterly: 9.90 * 2, semiannual: 9.90 * 4, annual: 9.90 * 7 }
+    },
+    youku: {
+        name: 'Youku',
+        price: 7.90,
+        icon: 'Y',
+        iconClass: 'youku-icon',
+        packageIds: { monthly: 428880, quarterly: 428984 },
+        priceByPeriod: { monthly: 7.90, quarterly: 7.90 * 2, semiannual: 7.90 * 4, annual: 7.90 * 7 }
+    },
+    iqiyi: {
+        name: 'IQIYI',
+        price: 9.90,
+        icon: 'iQ',
+        iconClass: 'iqiyi-icon',
+        packageIds: { monthly: 428883, quarterly: 428947 },
+        priceByPeriod: { monthly: 9.90, quarterly: 9.90 * 2, semiannual: 9.90 * 4, annual: 9.90 * 7 }
+    },
+    kocowa: {
+        name: 'Kocowa+',
+        price: 7.90,
+        icon: 'K+',
+        iconClass: 'kocowa-icon',
+        packageIds: { monthly: 428889, quarterly: 428989 },
+        priceByPeriod: { monthly: 7.90, quarterly: 7.90 * 2, semiannual: 7.90 * 4, annual: 7.90 * 7 }
+    },
+    reelshorts: {
+        name: 'ReelShorts',
+        price: 12.90,
+        icon: 'RS',
+        iconClass: 'reelshorts-icon',
+        packageIds: { monthly: 428892, quarterly: 428933 },
+        priceByPeriod: { monthly: 12.90, quarterly: 12.90 * 2, semiannual: 12.90 * 4, annual: 12.90 * 7 }
+    },
+    dramawave: {
+        name: 'DramaWave',
+        price: 12.90,
+        icon: 'DW',
+        iconClass: 'dramawave-icon',
+        packageIds: { monthly: 428897, quarterly: 428937 },
+        priceByPeriod: { monthly: 12.90, quarterly: 12.90 * 2, semiannual: 12.90 * 4, annual: 12.90 * 7 }
+    }
 };
 
 // Period Discounts
 const periodDiscounts = {
     monthly: { discount: 0, months: 1, label: 'Mensal' },
-    quarterly: { discount: 0.15, months: 3, label: 'Trimestral' },
-    semiannual: { discount: 0.30, months: 6, label: 'Semestral' },
-    annual: { discount: 0.50, months: 12, label: 'Anual' }
+    quarterly: { discount: 0, months: 3, label: 'Trimestral' },
+    semiannual: { discount: 0, months: 6, label: 'Semestral' },
+    annual: { discount: 0, months: 12, label: 'Anual' }
 };
 
 // Centralcart API Configuration
@@ -109,6 +172,7 @@ periodButtons.forEach(btn => {
         btn.classList.add('active');
         currentPeriod = btn.dataset.period;
         updatePlanPrices();
+        updateCartPeriod();
     });
 });
 
@@ -116,24 +180,44 @@ function updatePlanPrices() {
     const period = periodDiscounts[currentPeriod];
 
     document.querySelectorAll('.plan-card').forEach(card => {
-        const basePrice = parseFloat(card.dataset.price);
-        const totalMonths = period.months;
-        const totalWithoutDiscount = basePrice * totalMonths;
-        const totalWithDiscount = totalWithoutDiscount * (1 - period.discount);
+        const platformId = card.dataset.platform;
+        const platform = platforms[platformId];
+        const priceForPeriod = platform?.priceByPeriod?.[currentPeriod];
+        const priceValueNumber = typeof priceForPeriod === 'number'
+            ? priceForPeriod
+            : (platform.price * period.months);
 
         const priceValue = card.querySelector('.price-value');
         const pricePeriod = card.querySelector('.price-period');
 
         if (currentPeriod === 'monthly') {
-            priceValue.textContent = formatPrice(basePrice);
+            priceValue.textContent = formatPrice(platform.priceByPeriod.monthly);
             pricePeriod.textContent = '/mês';
         } else {
-            priceValue.textContent = formatPrice(totalWithDiscount);
+            priceValue.textContent = formatPrice(priceValueNumber);
             pricePeriod.textContent = `/${period.label.toLowerCase()}`;
         }
     });
 }
 
+function updateCartPeriod() {
+    const period = periodDiscounts[currentPeriod];
+    cart = cart.map(item => {
+        const platform = platforms[item.platformId];
+        const priceMap = platform.priceByPeriod || {};
+        const price = typeof priceMap[currentPeriod] === 'number'
+            ? priceMap[currentPeriod]
+            : (platform.price * period.months);
+        return {
+            ...item,
+            period: currentPeriod,
+            periodLabel: period.label,
+            price
+        };
+    });
+    updateCartUI();
+    saveCart();
+}
 // ========================================
 // Cart Functions
 // ========================================
@@ -153,9 +237,10 @@ function addToCart(platformId) {
     } else {
         // Add new item
         const period = periodDiscounts[currentPeriod];
-        const totalMonths = period.months;
-        const totalWithoutDiscount = platform.price * totalMonths;
-        const price = totalWithoutDiscount * (1 - period.discount);
+        const priceMap = platform.priceByPeriod || {};
+        const price = typeof priceMap[currentPeriod] === 'number'
+            ? priceMap[currentPeriod]
+            : (platform.price * period.months);
 
         cart.push({
             platformId,
@@ -216,19 +301,10 @@ function renderCartItems() {
 
 function calculateTotals() {
     const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
-
-    // Progressive discount: 10% for each item after the first
-    const itemCount = cart.length;
-    const progressiveDiscountPercent = itemCount > 1 ? (itemCount - 1) * 10 : 0;
-    const maxDiscount = 50; // Cap at 50%
-    const finalDiscountPercent = Math.min(progressiveDiscountPercent, maxDiscount);
-
-    const discountAmount = subtotal * (finalDiscountPercent / 100);
-    const total = subtotal - discountAmount;
-
+    const total = subtotal;
     cartSubtotal.textContent = formatCurrency(subtotal);
-    discountPercent.textContent = finalDiscountPercent;
-    cartDiscount.textContent = `- ${formatCurrency(discountAmount)}`;
+    discountPercent.textContent = 0;
+    cartDiscount.textContent = `- ${formatCurrency(0)}`;
     cartTotal.textContent = formatCurrency(total);
 }
 
@@ -334,18 +410,23 @@ function validateEmail(email) {
 // ========================================
 
 async function createPixPayment(total, cartItems, customer) {
-    // Build cart with package_ids (required by Centralcart)
-    const cartData = cartItems
-        .filter(item => {
-            const platform = platforms[item.platformId];
-            return platform && platform.packageId;
-        })
-        .map(item => ({
-            package_id: platforms[item.platformId].packageId,
-            quantity: 1,
-            options: {},
-            fields: {}
-        }));
+    // Build cart with package_ids por período (Centralcart)
+    const periodQty = { monthly: 1, quarterly: 2, semiannual: 4, annual: 7 };
+    const cartData = cartItems.reduce((acc, item) => {
+        const platform = platforms[item.platformId];
+        const pkgId = platform?.packageIds?.monthly || platform?.packageId;
+        const qty = periodQty[item.period] || 1;
+        if (!pkgId) return acc;
+        for (let i = 0; i < qty; i++) {
+            acc.push({
+                package_id: pkgId,
+                quantity: 1,
+                options: {},
+                fields: {}
+            });
+        }
+        return acc;
+    }, []);
 
     if (cartData.length === 0) {
         return {
@@ -443,10 +524,7 @@ async function createPixPayment(total, cartItems, customer) {
 async function openPaymentModal() {
     // Calculate total
     const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
-    const itemCount = cart.length;
-    const progressiveDiscountPercent = itemCount > 1 ? Math.min((itemCount - 1) * 10, 50) : 0;
-    const discountAmount = subtotal * (progressiveDiscountPercent / 100);
-    const total = subtotal - discountAmount;
+    const total = subtotal;
 
     paymentAmount.textContent = formatCurrency(total);
 
@@ -838,6 +916,15 @@ document.addEventListener('DOMContentLoaded', () => {
     loadCart();
     loadUserData();
     updatePlanPrices();
+    const satisfiedEl = document.getElementById('satisfiedCount');
+    if (satisfiedEl) {
+        let value = parseInt((satisfiedEl.textContent || '0').replace(/\D/g, ''), 10) || 634;
+        satisfiedEl.textContent = String(value);
+        setInterval(() => {
+            value += 1;
+            satisfiedEl.textContent = String(value);
+        }, 180000);
+    }
 });
 
 // Animate elements on scroll

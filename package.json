@@ -1,0 +1,16 @@
+{
+  "name": "streamplusblack",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Dev server para assets estáticos com Wrangler",
+  "scripts": {
+    "dev": "wrangler dev",
+    "preview": "wrangler dev --port 8787",
+    "build": "echo \"Projeto estático; não há build\" && exit 0",
+    "deploy:pages": "wrangler pages deploy public --project-name streamplusblack"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "wrangler": "^4.63.0"
+  }
+}

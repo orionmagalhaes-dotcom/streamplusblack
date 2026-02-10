@@ -1,0 +1,25 @@
+# Node modules
+node_modules/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+ 
+# Cloudflare Wrangler cache and temp files
+.wrangler/
+
+# Build output (if any in the future)
+dist/
+
+# IDE
+.vscode/
+
+# Proxy server (not needed for static hosting)
+proxy-server.js

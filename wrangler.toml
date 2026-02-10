@@ -1,0 +1,6 @@
+name = "streamplusblack"
+compatibility_date = "2026-02-09"
+send_metrics = false
+
+[assets]
+directory = "."

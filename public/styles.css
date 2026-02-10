@@ -369,6 +369,11 @@ body {
     justify-content: center;
 }
 
+.hero-product-link {
+    display: inline-flex;
+    text-decoration: none;
+}
+
 .hero-product-logo {
     width: 40px;
     height: 40px;
@@ -422,6 +427,7 @@ body {
     padding: 6px;
     box-shadow: var(--shadow-lg);
     will-change: transform;
+    text-decoration: none;
 }
 
 .floating-logo {
@@ -835,6 +841,11 @@ body {
     transition: all var(--transition-normal);
 }
 
+.plan-card:target {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-glow);
+}
+
 .plan-card:hover {
     transform: translateY(-8px) scale(1.02);
     border-color: var(--primary);
@@ -865,6 +876,11 @@ body {
 
 .plan-logo {
     margin-bottom: var(--space-lg);
+}
+
+.plan-logo-link {
+    display: inline-flex;
+    text-decoration: none;
 }
 
 .platform-icon {

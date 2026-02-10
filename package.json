@@ -1,5 +1,5 @@
 {
-  "name": "streamplusblack",
+  "name": "orion",
   "private": true,
   "version": "0.0.0",
   "description": "Dev server para assets estáticos com Wrangler",
@@ -7,9 +7,7 @@
     "dev": "wrangler dev",
     "preview": "wrangler dev --port 8787",
     "build": "echo \"Projeto estático; não há build\" && exit 0",
-    "deploy": "wrangler pages deploy public --project-name streamplusblack",
-    "deploy:pages": "wrangler pages deploy public --project-name streamplusblack",
-    "deploy:cloudflare": "wrangler pages deploy public --project-name streamplusblack"
+    "deploy:pages": "wrangler pages deploy public --project-name orion"
   },
   "devDependencies": {
     "http-server": "^14.1.1",

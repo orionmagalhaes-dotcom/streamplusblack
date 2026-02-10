@@ -1,5 +1,5 @@
 /* ========================================
-   StreamingBlck - JavaScript Application
+   Orion - JavaScript Application
    ======================================== */
 
 // Platform Data - packageIds por período (Centralcart)

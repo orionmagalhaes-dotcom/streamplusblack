@@ -166,13 +166,22 @@ function formatPrice(value) {
 
 const periodButtons = document.querySelectorAll('.period-btn');
 
+function syncPeriodButtons() {
+    periodButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.period === currentPeriod);
+    });
+}
+
+function setPeriod(period) {
+    currentPeriod = period;
+    syncPeriodButtons();
+    updatePlanPrices();
+    updateCartPeriod();
+}
+
 periodButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-        periodButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentPeriod = btn.dataset.period;
-        updatePlanPrices();
-        updateCartPeriod();
+        setPeriod(btn.dataset.period);
     });
 });
 
@@ -915,6 +924,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 document.addEventListener('DOMContentLoaded', () => {
     loadCart();
     loadUserData();
+    syncPeriodButtons();
     updatePlanPrices();
     const satisfiedEl = document.getElementById('satisfiedCount');
     if (satisfiedEl) {

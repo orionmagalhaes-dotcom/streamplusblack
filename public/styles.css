@@ -805,6 +805,54 @@ body {
     margin-bottom: var(--space-2xl);
 }
 
+.catalog {
+    padding: var(--space-3xl) 0;
+    background: var(--bg-secondary);
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--space-lg);
+}
+
+.catalog-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all var(--transition-normal);
+}
+
+.catalog-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--primary);
+    box-shadow: var(--shadow-glow);
+}
+
+.catalog-logo {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.catalog-name {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.catalog-price {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
 .discount-badge {
     display: flex;
     align-items: center;
@@ -933,11 +981,6 @@ body {
 
 .dramawave-icon {
     background: linear-gradient(135deg, #9b59b6, #7d3c98);
-    font-size: 1.2rem;
-}
-
-.test-icon {
-    background: linear-gradient(135deg, #00cec9, #6c5ce7);
     font-size: 1.2rem;
 }
 
